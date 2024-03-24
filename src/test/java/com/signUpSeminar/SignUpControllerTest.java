@@ -19,7 +19,6 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(SpringRunner.class)
 @WebMvcTest(SignUpController.class)
 class SignUpControllerTest {
 
@@ -35,11 +34,7 @@ class SignUpControllerTest {
     @Autowired
     private WebApplicationContext webApplicationContext;
 
-    @AfterEach
-    public void setUp(){
-        WebApplicationContext webApplicationContext;
-        mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-    }
+
 
     public long id = 1L;
 
