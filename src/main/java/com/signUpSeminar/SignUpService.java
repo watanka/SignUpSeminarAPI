@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 public class SignUpService {
 
 
+
     public String register(long userId) {
 
         return "요청 성공";
