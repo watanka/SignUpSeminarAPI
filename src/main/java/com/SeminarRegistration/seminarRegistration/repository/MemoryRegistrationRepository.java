@@ -1,6 +1,6 @@
 package com.SeminarRegistration.seminarRegistration.repository;
 
-import com.SeminarRegistration.seminarRegistration.domain.User;
+import com.SeminarRegistration.seminarRegistration.domain.AppUser;
 
 import java.util.*;
 
@@ -9,30 +9,30 @@ public class MemoryRegistrationRepository implements RegistrationRepository{
     private final Map<Long, List<AppUser>> registrationTable = new HashMap<>();
 
     @Override
-    public User save(long seminarId, String userId) {
-        List<User> userList = registrationTable.get(seminarId);
-        int totalNum = sequenceBySeminar.getOrDefault(seminarId, 0);
+    public AppUser save(long seminarId, String userId) {
+        List<AppUser> appUserList = registrationTable.get(seminarId);
 
-        if (userList == null){
-            userList = new ArrayList<User>();
-            registrationTable.put(seminarId, userList);
+
+        if (appUserList == null) {
+            appUserList = new ArrayList<AppUser>();
+            registrationTable.put(seminarId, appUserList);
         }
 
-        User user = new User(totalNum++, userId);
+        AppUser appUser = new AppUser(userId);
 
-        userList.add(user);
-        return user;
+        appUserList.add(appUser);
+        return appUser;
     }
 
     @Override
-    public List<User> getAllUsers(long seminarId) {
-        return registrationTable.getOrDefault(seminarId, new ArrayList<User>());
+    public List<AppUser> getAllUsers(long seminarId) {
+        return registrationTable.getOrDefault(seminarId, new ArrayList<AppUser>());
     }
 
     @Override
-    public Optional<User> findUserById(long seminarId, String userId) {
-        return registrationTable.getOrDefault(seminarId, new ArrayList<User>()).stream()
-                .filter(user -> user.userId.equals(userId))
+    public Optional<AppUser> findUserById(long seminarId, String userId) {
+        return registrationTable.getOrDefault(seminarId, new ArrayList<AppUser>()).stream()
+                .filter(user -> user.getUserId().equals(userId))
                 .findAny();
 
     }

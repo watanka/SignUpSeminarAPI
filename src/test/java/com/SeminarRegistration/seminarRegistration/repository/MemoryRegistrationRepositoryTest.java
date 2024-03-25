@@ -1,7 +1,7 @@
 package com.SeminarRegistration.seminarRegistration.repository;
 
 
-import com.SeminarRegistration.seminarRegistration.domain.User;
+import com.SeminarRegistration.seminarRegistration.domain.AppUser;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.result.StatusResultMatchersExtensionsKt.isEqualTo;
@@ -10,8 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public class MemoryRegistrationRepositoryTest {
@@ -34,9 +32,9 @@ public class MemoryRegistrationRepositoryTest {
 
         registrationRepository.save(seminarId, userId);
 
-        User userInRepository = registrationRepository.findUserById(seminarId, userId).get();
+        AppUser appUserInRepository = registrationRepository.findUserById(seminarId, userId).get();
 
-        assertThat(userInRepository.userId).isEqualTo(userId);
+        assertThat(appUserInRepository.getUserId()).isEqualTo(userId);
 
     }
 
@@ -44,7 +42,6 @@ public class MemoryRegistrationRepositoryTest {
     @Test
     @DisplayName("특강 수강신청 리스트 출력")
     public void getRegisterList(){
-
         for (int i=0;i<30;i++){
             String userId = "user"+i;
             registrationRepository.save(seminarId, userId);
@@ -60,7 +57,7 @@ public class MemoryRegistrationRepositoryTest {
         //given
         registrationRepository.save(seminarId, userId);
 
-        String foundUserName = registrationRepository.findUserById(seminarId, userId).get().userId;
+        String foundUserName = registrationRepository.findUserById(seminarId, userId).get().getUserId();
 
         assertThat(foundUserName).isEqualTo(userId);
     }
@@ -68,7 +65,7 @@ public class MemoryRegistrationRepositoryTest {
     @DisplayName("수강신청 리스트에서 아이디 조회 - 리스트에 불포함")
     public void checkNotRegistered(){
 
-        Optional<User> foundUser = registrationRepository.findUserById(seminarId, userId);
+        Optional<AppUser> foundUser = registrationRepository.findUserById(seminarId, userId);
 
         assertThat(foundUser).isEqualTo(Optional.empty());
     }

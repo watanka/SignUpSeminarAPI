@@ -1,8 +1,8 @@
 package com.SeminarRegistration.seminarRegistration;
 
-import com.SeminarRegistration.seminarRegistration.domain.User;
-import com.SeminarRegistration.seminarRegistration.repository.RegistrationRepository;
+import com.SeminarRegistration.seminarRegistration.domain.AppUser;
 import com.SeminarRegistration.seminarRegistration.service.RegistrationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,12 +11,13 @@ public class RegistrationController {
 
     private RegistrationService registrationService;
 
+    @Autowired
     public RegistrationController(RegistrationService registrationService) {
         this.registrationService = registrationService;
     }
 
     @PostMapping("/")
-    public User signUp(@RequestBody long seminarId, @RequestBody String userId){
+    public AppUser signUp(@RequestBody long seminarId, @RequestBody String userId){
         return registrationService.register(seminarId, userId);
     }
 
