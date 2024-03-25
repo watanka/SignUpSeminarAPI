@@ -6,8 +6,7 @@ import java.util.*;
 
 public class MemoryRegistrationRepository implements RegistrationRepository{
 
-    private final Map<Long, List<User>> registrationTable = new HashMap<>();
-    private static HashMap<Long, Integer> sequenceBySeminar = new HashMap<Long, Integer>();
+    private final Map<Long, List<AppUser>> registrationTable = new HashMap<>();
 
     @Override
     public User save(long seminarId, String userId) {
