@@ -1,8 +1,7 @@
 package com.SeminarRegistration.seminarRegistration.service;
 
-import com.SeminarRegistration.seminarRegistration.domain.User;
+import com.SeminarRegistration.seminarRegistration.domain.AppUser;
 import com.SeminarRegistration.seminarRegistration.repository.MemoryRegistrationRepository;
-import com.SeminarRegistration.seminarRegistration.repository.RegistrationRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,7 +27,7 @@ public class RegistrationServiceTest {
     @DisplayName("세미나 등록")
     public void registerSuccess(){
 
-        User user = registrationService.register(seminarId, userId);
+        AppUser appUser = registrationService.register(seminarId, userId);
 
         assertThat(registrationService.check(seminarId, userId)).isEqualTo(true);
 
