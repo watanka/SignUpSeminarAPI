@@ -1,6 +1,6 @@
-package com.SeminarRegistration.seminarRegistration.repository;
+package com.SeminarRegistration.repository;
 
-import com.SeminarRegistration.seminarRegistration.domain.AppUser;
+import com.SeminarRegistration.domain.AppUser;
 
 import java.util.*;
 

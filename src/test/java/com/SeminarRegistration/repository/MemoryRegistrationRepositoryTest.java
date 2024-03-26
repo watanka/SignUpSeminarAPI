@@ -1,11 +1,12 @@
-package com.SeminarRegistration.seminarRegistration.repository;
+package com.SeminarRegistration.repository;
 
 
-import com.SeminarRegistration.seminarRegistration.domain.AppUser;
+import com.SeminarRegistration.domain.AppUser;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.result.StatusResultMatchersExtensionsKt.isEqualTo;
 
+import com.SeminarRegistration.repository.MemoryRegistrationRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

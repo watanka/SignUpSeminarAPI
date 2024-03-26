@@ -1,4 +1,4 @@
-package com.SeminarRegistration.seminarRegistration;
+package com.SeminarRegistration;
 
 public record ErrorResponse(
         String code,

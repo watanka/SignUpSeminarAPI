@@ -1,4 +1,4 @@
-package com.SeminarRegistration.seminarRegistration.domain;
+package com.SeminarRegistration.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
