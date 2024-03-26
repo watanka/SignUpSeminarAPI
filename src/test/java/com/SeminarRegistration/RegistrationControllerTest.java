@@ -1,15 +1,14 @@
-package com.SeminarRegistration.seminarRegistration;
+package com.SeminarRegistration;
 
-import com.SeminarRegistration.seminarRegistration.repository.JpaRegistrationRepository;
-import com.SeminarRegistration.seminarRegistration.repository.MemoryRegistrationRepository;
-import com.SeminarRegistration.seminarRegistration.service.RegistrationService;
+import com.SeminarRegistration.repository.JpaRegistrationRepository;
+import com.SeminarRegistration.service.RegistrationService;
+import com.SeminarRegistration.RegistrationController;
 
 import net.minidev.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -17,14 +16,14 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @Transactional
 class RegistrationControllerTest {
-
-
-    @Autowired RegistrationController registrationController;
+    @Autowired
+    RegistrationController registrationController;
     @Autowired RegistrationService registrationService;
     @Autowired JpaRegistrationRepository jpaRegistrationRepository;
 

@@ -1,7 +1,7 @@
-package com.SeminarRegistration.seminarRegistration.service;
+package com.SeminarRegistration.service;
 
-import com.SeminarRegistration.seminarRegistration.domain.AppUser;
-import com.SeminarRegistration.seminarRegistration.repository.RegistrationRepository;
+import com.SeminarRegistration.domain.AppUser;
+import com.SeminarRegistration.repository.RegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

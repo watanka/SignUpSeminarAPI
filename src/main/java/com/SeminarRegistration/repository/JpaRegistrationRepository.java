@@ -1,7 +1,7 @@
-package com.SeminarRegistration.seminarRegistration.repository;
+package com.SeminarRegistration.repository;
 
-import com.SeminarRegistration.seminarRegistration.domain.Seminar;
-import com.SeminarRegistration.seminarRegistration.domain.AppUser;
+import com.SeminarRegistration.domain.Seminar;
+import com.SeminarRegistration.domain.AppUser;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;

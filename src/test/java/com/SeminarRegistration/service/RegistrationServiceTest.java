@@ -1,7 +1,7 @@
-package com.SeminarRegistration.seminarRegistration.service;
+package com.SeminarRegistration.service;
 
 import com.SeminarRegistration.seminarRegistration.domain.AppUser;
-import com.SeminarRegistration.seminarRegistration.repository.MemoryRegistrationRepository;
+import com.SeminarRegistration.repository.MemoryRegistrationRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
