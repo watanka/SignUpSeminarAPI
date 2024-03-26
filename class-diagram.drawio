@@ -1,0 +1,147 @@
+<mxfile host="app.diagrams.net" modified="2024-03-26T15:28:48.360Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="ihfJW-m4s25eEUwtFKXM" version="24.2.0" type="device">
+  <diagram name="페이지-1" id="_b31awRqR2IRG90MOSuc">
+    <mxGraphModel dx="834" dy="1578" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="CvsVdCLuD6YM7w2VKbGI-1" target="CvsVdCLuD6YM7w2VKbGI-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-1" value="RegistrationService&lt;div&gt;&amp;lt;Interface&amp;gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="460" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="CvsVdCLuD6YM7w2VKbGI-2" target="CvsVdCLuD6YM7w2VKbGI-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-2" value="Client&lt;div&gt;Controller&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="420" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-5" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;signUp: POST&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;userId로 특강 등록&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="220" y="420" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-7" value="&lt;div&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;signUp: GET&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;userId 등록 확인&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="220" y="510" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-8" value="UserList&lt;div&gt;&amp;lt;Interface&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="460" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-11" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;ul&gt;&lt;li&gt;&lt;b style=&quot;background-color: initial;&quot;&gt;save&lt;/b&gt;&lt;span style=&quot;text-align: left; background-color: initial;&quot;&gt;: 유지ID 등록&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;b&gt;findById&lt;/b&gt;: 유저ID가 등록확인&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="630" y="510" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-13" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;ul&gt;&lt;li&gt;&lt;b style=&quot;background-color: initial;&quot;&gt;register: 유저ID 등록&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;check: userId 등록 여부 확인&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="370" y="510" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-14" value="&lt;b&gt;&lt;u&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;클래스 다이어그램&lt;/font&gt;&lt;/u&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="320" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="CvsVdCLuD6YM7w2VKbGI-23" target="CvsVdCLuD6YM7w2VKbGI-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="CvsVdCLuD6YM7w2VKbGI-23" target="CvsVdCLuD6YM7w2VKbGI-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-23" value="RegistrationService&lt;div&gt;&amp;lt;Interface&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="830" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="CvsVdCLuD6YM7w2VKbGI-25" target="CvsVdCLuD6YM7w2VKbGI-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-25" value="Client&lt;div&gt;Controller&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="790" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-26" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;signUp: POST&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;userId로 특강 등록&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="220" y="790" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-27" value="&lt;div&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;signUp: GET&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;userId 등록 확인&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="220" y="880" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-28" value="UserList&lt;div&gt;&amp;lt;Interface&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="830" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-29" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;ul&gt;&lt;li&gt;&lt;b style=&quot;background-color: initial;&quot;&gt;register: 유저ID 등록&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;check: userId 등록 여부 확인&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="370" y="880" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-30" value="&lt;b&gt;&lt;u&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;객체 다이어그램&lt;/font&gt;&lt;/u&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="680" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="CvsVdCLuD6YM7w2VKbGI-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="710" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-31" value="MemoryUserList" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="960" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="CvsVdCLuD6YM7w2VKbGI-32">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="750" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-32" value="DBUserList" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="960" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="CvsVdCLuD6YM7w2VKbGI-36" target="CvsVdCLuD6YM7w2VKbGI-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-36" value="RegistrationServiceImpl" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="720" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="CvsVdCLuD6YM7w2VKbGI-40" target="CvsVdCLuD6YM7w2VKbGI-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="CvsVdCLuD6YM7w2VKbGI-40" target="CvsVdCLuD6YM7w2VKbGI-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-40" value="RegistrationService&lt;div&gt;&amp;lt;Interface&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="1270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="CvsVdCLuD6YM7w2VKbGI-42" target="CvsVdCLuD6YM7w2VKbGI-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-42" value="Client&lt;div&gt;Controller&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1230" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-43" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;signUp: POST&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;userId로 특강 등록&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="220" y="1230" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-44" value="&lt;div&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;signUp: GET&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;userId 등록 확인&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="220" y="1320" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-45" value="UserList&lt;div&gt;&amp;lt;Interface&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="1270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-46" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;ul&gt;&lt;li&gt;&lt;b style=&quot;background-color: initial;&quot;&gt;register: 유저ID 등록&lt;/b&gt;&lt;/li&gt;&lt;li&gt;&lt;b&gt;check: userId 등록 여부 확인&lt;/b&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="370" y="1320" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-47" value="&lt;b style=&quot;font-size: 24px;&quot;&gt;&lt;u&gt;변경사항&lt;/u&gt; - &lt;/b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;날짜별로 여러 개의 특강&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="1120" width="370" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="CvsVdCLuD6YM7w2VKbGI-49">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="710" y="1340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-49" value="MemoryUserList" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="1400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="CvsVdCLuD6YM7w2VKbGI-51">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="750" y="1340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-51" value="DBUserList" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="1400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="CvsVdCLuD6YM7w2VKbGI-53" target="CvsVdCLuD6YM7w2VKbGI-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-53" value="RegistrationServiceImpl" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="1160" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CvsVdCLuD6YM7w2VKbGI-55" value="&#xa;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;비즈니스 로직&lt;/span&gt;&lt;div style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;1. 30명만 받을 수 있다.&lt;/div&gt;&lt;div style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;2. 4월 20일 토요일 1시에 열린다.&lt;/div&gt;&#xa;&#xa;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" vertex="1" parent="1">
+          <mxGeometry x="200" y="980" width="130" height="110" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
