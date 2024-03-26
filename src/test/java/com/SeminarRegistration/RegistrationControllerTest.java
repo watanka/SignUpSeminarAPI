@@ -1,8 +1,8 @@
 package com.SeminarRegistration;
 
+import com.SeminarRegistration.registration.RegistrationController;
 import com.SeminarRegistration.repository.JpaRegistrationRepository;
-import com.SeminarRegistration.service.RegistrationService;
-import com.SeminarRegistration.RegistrationController;
+import com.SeminarRegistration.registration.RegistrationService;
 
 import net.minidev.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;

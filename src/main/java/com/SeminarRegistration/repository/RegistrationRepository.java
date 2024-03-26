@@ -8,8 +8,8 @@ import java.util.Optional;
 
 public interface RegistrationRepository {
 
-    public AppUser save(long seminarId, String userId);
-    public List<AppUser> getAllUsers(long seminarId);
-    public Optional<AppUser> findUserById(long seminarId, String userId);
+    public String save(String userId);
+    public List<String> getAllUsers(long seminarId);
+    public String findUserById(String userId);
 
 }

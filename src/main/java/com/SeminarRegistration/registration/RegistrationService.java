@@ -1,29 +1,29 @@
-package com.SeminarRegistration.service;
+package com.SeminarRegistration.registration;
 
 import com.SeminarRegistration.domain.AppUser;
 import com.SeminarRegistration.repository.RegistrationRepository;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RegistrationService {
 
-    RegistrationRepository registrationRepository;
+    UserList userList;
 
     @Autowired
-    public RegistrationService(RegistrationRepository registrationRepository) {
-        this.registrationRepository = registrationRepository;
+    public RegistrationService(UserList userList ) {
+        this.userList = userList;
     }
 
-    public AppUser register(long seminarId, String userId) {
-        if (registrationRepository.findUserById(seminarId, userId).isPresent()){
+    public AppUser register(String userId) {
+        if (userList.findById(userId).isPresent()){
             throw new IllegalStateException("이미 등록되어있습니다.");
         }
-        if (registrationRepository.getAllUsers(seminarId).size() >= 30){
+        if (userList.getAll().size() >= 30){
             throw new IllegalStateException("등록이 마감되었습니다.");
         }
-
-        AppUser appUser = registrationRepository.save(seminarId, userId);
+        userList.add(userId);
 
         return appUser;
     }
