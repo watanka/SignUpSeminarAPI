@@ -1,7 +1,8 @@
 package com.SeminarRegistration.repository;
 
+import com.SeminarRegistration.domain.Registration;
 import com.SeminarRegistration.domain.Seminar;
-import com.SeminarRegistration.domain.AppUser;
+import com.SeminarRegistration.domain.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
@@ -27,33 +28,36 @@ public class JpaRegistrationRepository implements RegistrationRepository{
     }
 
     @Override
-    public AppUser save(long seminarId, String userId) {
+    public Registration save(long seminarId, String userId) {
         Optional<Seminar> seminarOptional = findSeminar(seminarId);
         if (seminarOptional.isPresent()){
-            Seminar seminar = seminarOptional.get();
-            AppUser appUser = new AppUser(userId);
-            seminar.getAppUsers().add(appUser);
-            appUser.setSeminar(seminar);
-            return appUser;
+            Registration registration = new Registration(seminarId, userId);
+            en.persist(registration);
+            return registration;
         }
         return null;
     }
 
     @Override
-    public List<AppUser> getAllUsers(long seminarId) {
-        return en.createQuery("SELECT u FROM User u WHERE u.seminar.id = :seminarId", AppUser.class)
-                .setParameter("seminarId", seminarId)
-                .getResultList();
+    public List<User> getAllUsers(long seminarId) {
+
+        String jpql = "SELECT u FROM User u " +
+                "         JOIN Registration r ON u.userId = r.userId" +
+                "         WHERE r.seminarId = :seminarId";
+
+        return en.createQuery(jpql, User.class)
+                        .setParameter("seminarId", seminarId)
+                        .getResultList();
     }
 
     @Override
-    public Optional<AppUser> findUserById(long seminarId, String userId) {
+    public Optional<User> findUserById(long seminarId, String userId) {
         try{
-            AppUser appUser = en.createQuery("SELECT u FROM User u WHERE u.seminar.id = :seminarId AND u.id = :userId", AppUser.class)
+            User user = en.createQuery("SELECT u FROM User u WHERE u.seminar.id = :seminarId AND u.id = :userId", User.class)
                     .setParameter("seminarId", seminarId)
                     .setParameter("userId", userId)
                     .getSingleResult();
-            return Optional.of(appUser);
+            return Optional.of(user);
         }catch(NoResultException e){
             return Optional.empty();
         }

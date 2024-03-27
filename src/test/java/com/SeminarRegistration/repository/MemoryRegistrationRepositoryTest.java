@@ -1,17 +1,15 @@
 package com.SeminarRegistration.repository;
 
 
-import com.SeminarRegistration.domain.AppUser;
+import com.SeminarRegistration.domain.User;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.result.StatusResultMatchersExtensionsKt.isEqualTo;
 
-import com.SeminarRegistration.repository.MemoryRegistrationRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
-import org.springframework.test.annotation.Repeat;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -38,9 +36,9 @@ public class MemoryRegistrationRepositoryTest {
 
         registrationRepository.save(seminarId, userId);
 
-        AppUser appUserInRepository = registrationRepository.findUserById(seminarId, userId).get();
+        User userInRepository = registrationRepository.findUserById(seminarId, userId).get();
 
-        assertThat(appUserInRepository.getUserId()).isEqualTo(userId);
+        assertThat(userInRepository.getUserId()).isEqualTo(userId);
 
     }
 
@@ -71,7 +69,7 @@ public class MemoryRegistrationRepositoryTest {
     @DisplayName("수강신청 리스트에서 아이디 조회 - 리스트에 불포함")
     public void checkNotRegistered(){
 
-        Optional<AppUser> foundUser = registrationRepository.findUserById(seminarId, userId);
+        Optional<User> foundUser = registrationRepository.findUserById(seminarId, userId);
 
         assertThat(foundUser).isEqualTo(Optional.empty());
     }

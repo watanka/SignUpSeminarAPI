@@ -1,45 +1,43 @@
 package com.SeminarRegistration.repository;
 
-import com.SeminarRegistration.domain.AppUser;
+import com.SeminarRegistration.domain.Registration;
+import com.SeminarRegistration.domain.User;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class MemoryRegistrationRepository implements RegistrationRepository{
 
 //    private final Map<Long, List<AppUser>> registrationTable = new HashMap<>();
 
-    private final Map<Long, List<AppUser>> registrationTable = new ConcurrentHashMap<>();
+    private final Map<Long, List<User>> registrationTable = new ConcurrentHashMap<>();
     ReentrantLock reentrantLock = new ReentrantLock();
 
     @Override
-    public AppUser save(long seminarId, String userId) {
+    public Registration save(long seminarId, String userId) {
         reentrantLock.lock();
-        List<AppUser> appUserList = registrationTable.get(seminarId);
+        List<User> userList = registrationTable.getOrDefault(seminarId, new ArrayList<>());
+        Registration registration =  getRegistration(seminarId, userId, userList);
 
-
-        if (appUserList == null) {
-            appUserList = new ArrayList<AppUser>();
-            registrationTable.put(seminarId, appUserList);
+        if (userList.isEmpty()) {
+            registrationTable.put(seminarId, userList);
         }
-
-        AppUser appUser = new AppUser(userId);
-
-        appUserList.add(appUser);
         reentrantLock.unlock();
-        return appUser;
+
+        return registration;
+    }
+
+
+
+    @Override
+    public List<User> getAllUsers(long seminarId) {
+        return registrationTable.getOrDefault(seminarId, new ArrayList<>());
     }
 
     @Override
-    public List<AppUser> getAllUsers(long seminarId) {
-        return registrationTable.getOrDefault(seminarId, new ArrayList<AppUser>());
-    }
-
-    @Override
-    public Optional<AppUser> findUserById(long seminarId, String userId) {
-        return registrationTable.getOrDefault(seminarId, new ArrayList<AppUser>()).stream()
+    public Optional<User> findUserById(long seminarId, String userId) {
+        return registrationTable.getOrDefault(seminarId, new ArrayList<User>()).stream()
                 .filter(user -> user.getUserId().equals(userId))
                 .findAny();
 
@@ -47,6 +45,21 @@ public class MemoryRegistrationRepository implements RegistrationRepository{
 
     public void clearTable(){
         registrationTable.clear();
+    }
+
+    private static Registration getRegistration(long seminarId, String userId, List<User> userList) {
+        User user = null;
+        for (User u: userList){
+            if (u.getUserId().equals(userId)){
+                user = u;
+                break;
+            }
+        }
+        if (user != null){
+            return new Registration(seminarId, userId);
+        }else{
+            return null;
+        }
     }
 
 }
