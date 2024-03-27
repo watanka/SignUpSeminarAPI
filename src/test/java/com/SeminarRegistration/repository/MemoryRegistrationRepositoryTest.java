@@ -9,9 +9,14 @@ import static org.springframework.test.web.servlet.result.StatusResultMatchersEx
 import com.SeminarRegistration.repository.MemoryRegistrationRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.springframework.test.annotation.Repeat;
 
-import java.util.Optional;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 public class MemoryRegistrationRepositoryTest {
 
@@ -70,6 +75,51 @@ public class MemoryRegistrationRepositoryTest {
 
         assertThat(foundUser).isEqualTo(Optional.empty());
     }
+
+
+    private static final HashMap<String, Integer> hashMap = new HashMap<>();
+    private static final Hashtable<String, Integer> hashtable = new Hashtable<>();
+    private static final ConcurrentHashMap <String, Integer> concurrencyHashMap = new ConcurrentHashMap<>();
+    private static final Map<String, Integer> synHashMap = Collections.synchronizedMap(new HashMap<>());
+
+    @Test
+    @DisplayName("동시에 신청을 했을 때, 순서를 보장한다.")
+    @RepeatedTest(100)
+    void concurrencyTest(){
+        //given:
+        int maxThreads = 30;
+        ExecutorService executorService = Executors.newFixedThreadPool(maxThreads);
+
+        AtomicInteger index = new AtomicInteger(0);
+
+        for (int i = 0; i < maxThreads; i++){
+            executorService.execute(() ->{
+                    registrationRepository.save(seminarId, "user" + index);
+                    index.getAndIncrement();
+            });
+        }
+
+        executorService.shutdown();
+        try{
+            executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        List<String> userNameListInOrder = new ArrayList<>();
+        for (int i=0; i < 30; i++){
+            userNameListInOrder.add("user"+i);
+        }
+
+        List<String> userListInConcurrency = registrationRepository.getAllUsers(seminarId).stream()
+                        .map(user -> user.getUserId())
+                                .collect(Collectors.toList());
+
+        assertThat(userListInConcurrency).isEqualTo(userNameListInOrder);
+
+
+    }
+
 
 
 }
