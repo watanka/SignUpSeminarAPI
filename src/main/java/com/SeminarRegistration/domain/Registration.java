@@ -10,7 +10,7 @@ public class Registration{
         @Column(name="userId")
         private String userId;
         @Column(name="seminarId")
-        long seminarId;
+        private long seminarId;
 
     public Registration(long seminarId, String userId) {
         this.seminarId = seminarId;

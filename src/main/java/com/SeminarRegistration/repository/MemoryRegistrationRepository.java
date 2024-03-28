@@ -11,18 +11,20 @@ public class MemoryRegistrationRepository implements RegistrationRepository{
 
 //    private final Map<Long, List<AppUser>> registrationTable = new HashMap<>();
 
+    //TODO: maxEnrollmentNum을 조회할 리포지토리를 정해야함.
+    public final long maxEnrollmentNum = 30;
     private final Map<Long, List<User>> registrationTable = new ConcurrentHashMap<>();
+    private final Map<Long, Integer> currentEnrollmentCountMap = new ConcurrentHashMap<>();
     ReentrantLock reentrantLock = new ReentrantLock();
 
     @Override
     public Registration save(long seminarId, String userId) {
         reentrantLock.lock();
-        List<User> userList = registrationTable.getOrDefault(seminarId, new ArrayList<>());
-        Registration registration =  getRegistration(seminarId, userId, userList);
+        Registration registration = new Registration(seminarId, userId);
 
-        if (userList.isEmpty()) {
-            registrationTable.put(seminarId, userList);
-        }
+        registrationTable.getOrDefault(seminarId, new ArrayList<>()).add(new User(userId));
+        currentEnrollmentCountMap.put(seminarId,
+                                    (currentEnrollmentCountMap.getOrDefault(seminarId, 0) + 1));
         reentrantLock.unlock();
 
         return registration;
@@ -37,29 +39,26 @@ public class MemoryRegistrationRepository implements RegistrationRepository{
 
     @Override
     public Optional<User> findUserById(long seminarId, String userId) {
-        return registrationTable.getOrDefault(seminarId, new ArrayList<User>()).stream()
+        return registrationTable.getOrDefault(seminarId, new ArrayList<>()).stream()
                 .filter(user -> user.getUserId().equals(userId))
                 .findAny();
 
+    }
+
+    @Override
+    public long getCurrentEnrollmentCount(long seminarId) {
+        return currentEnrollmentCountMap.getOrDefault(seminarId, 0);
+    }
+
+
+    @Override
+    public long getMaxEnrollmentNum(){
+        return maxEnrollmentNum;
     }
 
     public void clearTable(){
         registrationTable.clear();
     }
 
-    private static Registration getRegistration(long seminarId, String userId, List<User> userList) {
-        User user = null;
-        for (User u: userList){
-            if (u.getUserId().equals(userId)){
-                user = u;
-                break;
-            }
-        }
-        if (user != null){
-            return new Registration(seminarId, userId);
-        }else{
-            return null;
-        }
-    }
 
 }

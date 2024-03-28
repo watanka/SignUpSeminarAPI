@@ -62,4 +62,17 @@ public class JpaRegistrationRepository implements RegistrationRepository{
             return Optional.empty();
         }
     }
+
+    @Override
+    public long getMaxEnrollmentNum() {
+        //TODO
+        return 30L;
+    }
+
+    @Override
+    public long getCurrentEnrollmentCount(long seminarId) {
+        return en.createQuery("SELECT s.maxEnrollmentNum FROM Seminar WHERE s.id == :seminarId", Seminar.class)
+                .setParameter("seminarId", seminarId)
+                .getSingleResult();
+    }
 }

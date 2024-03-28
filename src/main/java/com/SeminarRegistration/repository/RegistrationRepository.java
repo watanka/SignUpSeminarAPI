@@ -13,4 +13,7 @@ public interface RegistrationRepository {
     public List<User> getAllUsers(long seminarId);
     public Optional<User> findUserById(long seminarId, String userId);
 
+    public long getMaxEnrollmentNum();
+
+    public long getCurrentEnrollmentCount(long seminarId);
 }

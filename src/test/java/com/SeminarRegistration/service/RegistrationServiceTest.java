@@ -1,5 +1,6 @@
 package com.SeminarRegistration.service;
 
+import com.SeminarRegistration.domain.RegisterPolicy;
 import com.SeminarRegistration.domain.Registration;
 import com.SeminarRegistration.domain.User;
 import com.SeminarRegistration.repository.MemoryRegistrationRepository;
@@ -13,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class RegistrationServiceTest {
 
     MemoryRegistrationRepository memoryRepository = new MemoryRegistrationRepository();
+    RegisterPolicy registerPolicyImpl = new RegisterPolicyImpl();
     RegistrationService registrationService;
 
     long seminarId = 1L;
@@ -21,7 +23,7 @@ public class RegistrationServiceTest {
     @BeforeEach
     void setUp(){
         memoryRepository.clearTable();
-        registrationService = new RegistrationService(memoryRepository);
+        registrationService = new RegistrationService(memoryRepository, registerPolicyImpl);
     }
 
     @Test

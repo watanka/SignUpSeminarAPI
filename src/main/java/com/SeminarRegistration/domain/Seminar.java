@@ -14,8 +14,12 @@ public class Seminar{
     @Setter
     private long openTime;
 
-    public Seminar(long openTime) {
+    @Column(name="maxEnrollmentNum")
+    private long maxEnrollmentNum;
+
+    public Seminar(long openTime, long maxEnrollmentNum) {
         this.openTime = openTime;
+        this.maxEnrollmentNum = maxEnrollmentNum;
     }
 
 }

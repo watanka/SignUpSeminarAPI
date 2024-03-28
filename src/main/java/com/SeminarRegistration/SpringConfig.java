@@ -1,9 +1,11 @@
 package com.SeminarRegistration;
 
+import com.SeminarRegistration.domain.RegisterPolicy;
 import com.SeminarRegistration.repository.JpaRegistrationRepository;
 import com.SeminarRegistration.repository.RegistrationRepository;
 
 
+import com.SeminarRegistration.service.RegisterPolicyImpl;
 import com.SeminarRegistration.service.RegistrationService;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +24,19 @@ public class SpringConfig {
     }
 
     @Bean
-    public RegistrationRepository RegistrationRepository(){
+    public RegistrationRepository registrationRepository(){
+        //TODO: policy 주입하기
         return new JpaRegistrationRepository(em);
     }
 
     @Bean
+    public RegisterPolicy registerPolicy(){
+        return new RegisterPolicyImpl();
+    }
+
+    @Bean
     public RegistrationService registrationService(){
-        return new RegistrationService(RegistrationRepository());
+        return new RegistrationService(registrationRepository());
     };
 
     @Bean
