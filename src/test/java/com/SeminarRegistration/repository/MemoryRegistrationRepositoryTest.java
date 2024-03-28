@@ -74,12 +74,6 @@ public class MemoryRegistrationRepositoryTest {
         assertThat(foundUser).isEqualTo(Optional.empty());
     }
 
-
-    private static final HashMap<String, Integer> hashMap = new HashMap<>();
-    private static final Hashtable<String, Integer> hashtable = new Hashtable<>();
-    private static final ConcurrentHashMap <String, Integer> concurrencyHashMap = new ConcurrentHashMap<>();
-    private static final Map<String, Integer> synHashMap = Collections.synchronizedMap(new HashMap<>());
-
     @Test
     @DisplayName("동시에 신청을 했을 때, 순서를 보장한다.")
     @RepeatedTest(100)
