@@ -1,7 +1,6 @@
 package com.SeminarRegistration.repository;
 
-import com.SeminarRegistration.domain.Seminar;
-
+import com.SeminarRegistration.entity.Seminar;
 import java.util.Optional;
 
 public interface SeminarRepository {

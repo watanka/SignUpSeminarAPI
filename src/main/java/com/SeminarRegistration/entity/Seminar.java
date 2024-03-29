@@ -1,4 +1,4 @@
-package com.SeminarRegistration.domain;
+package com.SeminarRegistration.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -12,15 +12,15 @@ public class Seminar{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Setter
-    private ZonedDateTime openTime;
+    private ZonedDateTime openDate;
 
     @Column(name="max_registration_Num")
     private long maxRegistrationNum;
 
     private long currentRegistrationCount = 0;
 
-    public Seminar(ZonedDateTime openTime, long maxRegistrationNum) {
-        this.openTime = openTime;
+    public Seminar(ZonedDateTime openDate, long maxRegistrationNum) {
+        this.openDate = openDate;
         this.maxRegistrationNum = maxRegistrationNum;
     }
 

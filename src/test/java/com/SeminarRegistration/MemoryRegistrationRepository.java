@@ -1,12 +1,13 @@
-package com.SeminarRegistration.repository;
+package com.SeminarRegistration;
 
-import com.SeminarRegistration.domain.Registration;
+import com.SeminarRegistration.entity.Registration;
+import com.SeminarRegistration.repository.RegistrationRepository;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class MemoryRegistrationRepository implements RegistrationRepository{
+public class MemoryRegistrationRepository implements RegistrationRepository {
     private final Map<String, List<Registration>> registrationTable = new ConcurrentHashMap<>();
     ReentrantLock reentrantLock = new ReentrantLock();
 

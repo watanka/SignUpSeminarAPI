@@ -1,6 +1,6 @@
 package com.SeminarRegistration;
 
-import com.SeminarRegistration.domain.Seminar;
+import com.SeminarRegistration.controller.RegistrationController;
 import com.SeminarRegistration.repository.*;
 
 
@@ -26,7 +26,7 @@ public class SpringConfig {
 
     @Bean
     public RegistrationRepository registrationRepository(){
-        return new JpaRegistrationRepository(em);
+        return new RegistrationRepositoryImpl(em);
     }
 
     @Bean
@@ -39,9 +39,10 @@ public class SpringConfig {
         return new RegistrationService(registrationRepository(), registerPolicy());
     };
 
+
     @Bean
     public SeminarRepository seminarRepository(){
-        return new MemorySeminarRepository();
+        return new SeminarRepositoryImpl(em);
     }
 
     @Bean

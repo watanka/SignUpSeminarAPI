@@ -1,6 +1,6 @@
 package com.SeminarRegistration.repository;
 
-import com.SeminarRegistration.domain.Registration;
+import com.SeminarRegistration.entity.Registration;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
@@ -8,27 +8,27 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public class JpaRegistrationRepository implements RegistrationRepository{
+public class RegistrationRepositoryImpl implements RegistrationRepository{
 
     @PersistenceContext
-    private final EntityManager en;
+    private final EntityManager em;
 
 
-    public JpaRegistrationRepository(EntityManager en) {
-        this.en = en;
+    public RegistrationRepositoryImpl(EntityManager en) {
+        this.em = en;
     }
 
     @Override
     public Registration save(String userId, long seminarId) {
         Registration registration = new Registration(userId, seminarId);
-        en.persist(registration);
+        em.persist(registration);
         return registration;
     }
 
     @Override
     public Optional<Registration> findByUserIdAndSeminarId(String userId, long seminarId) {
 
-        return Optional.ofNullable(en.createQuery("SELECT r FROM Registration WHERE r.userId == :userId AND r.seminarId == :seminarId", Registration.class)
+        return Optional.ofNullable(em.createQuery("SELECT r FROM Registration WHERE r.userId == :userId AND r.seminarId == :seminarId", Registration.class)
                 .setParameter("userId", userId)
                 .setParameter("seminarId", seminarId)
                 .getSingleResult()

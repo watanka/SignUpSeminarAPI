@@ -1,5 +1,5 @@
 package com.SeminarRegistration.service;
-import com.SeminarRegistration.domain.Registration;
+import com.SeminarRegistration.entity.Registration;
 
 import java.util.Optional;
 

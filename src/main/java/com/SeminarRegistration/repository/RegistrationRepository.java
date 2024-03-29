@@ -1,7 +1,6 @@
 package com.SeminarRegistration.repository;
 
-import com.SeminarRegistration.domain.Registration;
-
+import com.SeminarRegistration.entity.Registration;
 import java.util.Optional;
 
 

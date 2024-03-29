@@ -1,5 +1,5 @@
 package com.SeminarRegistration.service;
-import com.SeminarRegistration.domain.Registration;
+import com.SeminarRegistration.entity.Registration;
 import com.SeminarRegistration.repository.RegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +31,7 @@ public class RegistrationService {
     }
 
     @Transactional(readOnly = true)
-    public boolean checkRegistration(long seminarId, String userId) {
+    public boolean checkRegistration(String userId, long seminarId) {
         return registrationRepository.findByUserIdAndSeminarId(userId, seminarId).isPresent();
     }
 }
