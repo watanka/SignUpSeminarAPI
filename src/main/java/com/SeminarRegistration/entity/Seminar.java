@@ -2,7 +2,6 @@ package com.SeminarRegistration.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.time.ZonedDateTime;
 
@@ -11,7 +10,6 @@ import java.time.ZonedDateTime;
 public class Seminar{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Setter
     private ZonedDateTime openDate;
 
     @Column(name="max_registration_Num")

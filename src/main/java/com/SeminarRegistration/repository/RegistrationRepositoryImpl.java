@@ -28,7 +28,7 @@ public class RegistrationRepositoryImpl implements RegistrationRepository{
     @Override
     public Optional<Registration> findByUserIdAndSeminarId(String userId, long seminarId) {
 
-        return Optional.ofNullable(em.createQuery("SELECT r FROM Registration WHERE r.userId == :userId AND r.seminarId == :seminarId", Registration.class)
+        return Optional.ofNullable(em.createQuery("SELECT r FROM Registration r WHERE r.userId == :userId AND r.seminarId == :seminarId", Registration.class)
                 .setParameter("userId", userId)
                 .setParameter("seminarId", seminarId)
                 .getSingleResult()

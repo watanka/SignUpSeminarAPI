@@ -1,8 +1,10 @@
 package com.SeminarRegistration.service;
 
+import com.SeminarRegistration.dto.SeminarDTO;
 import com.SeminarRegistration.entity.Seminar;
 import com.SeminarRegistration.repository.SeminarRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public class SeminarService {
@@ -22,7 +24,9 @@ public class SeminarService {
                         seminar -> {seminarPolicy.validate(seminar);
                         seminar.updateCurrentRegistrationCount(seminar.getCurrentRegistrationCount() + 1);
         });
+    }
 
-
+    public List<SeminarDTO> getAllSeminars(){
+        return seminarRepository.findAll();
     }
 }

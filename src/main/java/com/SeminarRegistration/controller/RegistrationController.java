@@ -3,12 +3,14 @@ package com.SeminarRegistration.controller;
 import com.SeminarRegistration.controller.request.CheckRegistrationRequest;
 import com.SeminarRegistration.controller.request.RegisterRequest;
 import com.SeminarRegistration.controller.response.CheckRegistrationResponse;
+import com.SeminarRegistration.dto.SeminarDTO;
 import com.SeminarRegistration.service.RegistrationService;
 import com.SeminarRegistration.service.SeminarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.List;
 
 @RestController
 @RequestMapping("/seminar")
@@ -43,4 +45,10 @@ public class RegistrationController {
 
         return new CheckRegistrationResponse(request.getUserId(), seminarId, registerResult);
     }
+
+    @GetMapping("/")
+    public List<SeminarDTO> getSeminarList(){
+        return seminarService.getAllSeminars();
+    }
+
 }
