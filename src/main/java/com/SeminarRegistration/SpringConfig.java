@@ -1,12 +1,13 @@
 package com.SeminarRegistration;
 
-import com.SeminarRegistration.domain.RegisterPolicy;
-import com.SeminarRegistration.repository.JpaRegistrationRepository;
-import com.SeminarRegistration.repository.RegistrationRepository;
+import com.SeminarRegistration.domain.Seminar;
+import com.SeminarRegistration.repository.*;
 
 
-import com.SeminarRegistration.service.RegisterPolicyImpl;
+import com.SeminarRegistration.service.RegisterPolicy;
 import com.SeminarRegistration.service.RegistrationService;
+import com.SeminarRegistration.service.SeminarPolicy;
+import com.SeminarRegistration.service.SeminarService;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringBootConfiguration;
@@ -25,23 +26,37 @@ public class SpringConfig {
 
     @Bean
     public RegistrationRepository registrationRepository(){
-        //TODO: policy 주입하기
         return new JpaRegistrationRepository(em);
     }
 
     @Bean
     public RegisterPolicy registerPolicy(){
-        return new RegisterPolicyImpl();
+        return new RegisterPolicy();
     }
 
     @Bean
     public RegistrationService registrationService(){
-        return new RegistrationService(registrationRepository());
+        return new RegistrationService(registrationRepository(), registerPolicy());
     };
 
     @Bean
+    public SeminarRepository seminarRepository(){
+        return new MemorySeminarRepository();
+    }
+
+    @Bean
+    public SeminarPolicy seminarPolicy(){
+        return new SeminarPolicy();
+    }
+    @Bean
+    public SeminarService seminarService(){
+        return new SeminarService(seminarRepository(), seminarPolicy());
+    }
+
+
+    @Bean
     public RegistrationController registrationController(){
-        return new RegistrationController(registrationService());
+        return new RegistrationController(seminarService(), registrationService());
     }
 
 

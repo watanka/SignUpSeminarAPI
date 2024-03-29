@@ -1,7 +1,7 @@
 package com.SeminarRegistration.repository;
 
 
-import com.SeminarRegistration.domain.User;
+import com.SeminarRegistration.domain.Registration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.result.StatusResultMatchersExtensionsKt.isEqualTo;
@@ -34,11 +34,11 @@ public class MemoryRegistrationRepositoryTest {
     @DisplayName("특강 수강신청")
     public void register(){
 
-        registrationRepository.save(seminarId, userId);
+        registrationRepository.save(userId, seminarId);
 
-        User userInRepository = registrationRepository.findUserById(seminarId, userId).get();
+        Optional<Registration> registration = registrationRepository.findByUserIdAndSeminarId(userId, seminarId);
 
-        assertThat(userInRepository.getUserId()).isEqualTo(userId);
+        assertThat(registration.isPresent());
 
     }
 
@@ -48,11 +48,11 @@ public class MemoryRegistrationRepositoryTest {
     public void getRegisterList(){
         for (int i=0;i<30;i++){
             String userId = "user"+i;
-            registrationRepository.save(seminarId, userId);
+            registrationRepository.save(userId, seminarId);
         }
 
 
-        assertThat(registrationRepository.getAllUsers(seminarId).size()).isEqualTo(30);
+        assertThat(registrationRepository.findBySeminarId(seminarId).size()).isEqualTo(30);
     }
 
     @Test

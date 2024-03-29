@@ -1,8 +1,8 @@
 package com.SeminarRegistration;
 
 import com.SeminarRegistration.domain.Registration;
-import com.SeminarRegistration.domain.User;
 import com.SeminarRegistration.service.RegistrationService;
+import com.SeminarRegistration.service.SeminarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,21 +10,24 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/seminar")
 public class RegistrationController {
 
+    private SeminarService seminarService;
     private RegistrationService registrationService;
 
     @Autowired
-    public RegistrationController(RegistrationService registrationService) {
+    public RegistrationController(SeminarService seminarService, RegistrationService registrationService) {
+        this.seminarService = seminarService;
         this.registrationService = registrationService;
     }
 
-    @PostMapping("/")
-    public Registration signUp(@RequestBody long seminarId, @RequestBody String userId){
-        return registrationService.register(seminarId, userId);
+    @PostMapping("{seminarId}/{userId}")
+    public void register(@PathVariable long seminarId, @PathVariable String userId){
+        registrationService.register(userId, seminarId);
+        seminarService.updateRegistrationCount(seminarId);
+
     }
 
-    @GetMapping("/{id}")
-    public boolean inquire(@RequestBody long seminarId, String userId){
-
-        return registrationService.check(seminarId, userId);
+    @GetMapping("{seminarId}/{id}")
+    public boolean checkRegistration(@PathVariable long seminarId, @PathVariable String userId){
+        return registrationService.checkRegistration(seminarId, userId);
     }
 }
