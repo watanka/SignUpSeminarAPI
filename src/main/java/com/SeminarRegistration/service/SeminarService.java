@@ -1,6 +1,6 @@
 package com.SeminarRegistration.service;
 
-import com.SeminarRegistration.dto.SeminarDTO;
+import com.SeminarRegistration.controller.dto.SeminarDTO;
 import com.SeminarRegistration.entity.Seminar;
 import com.SeminarRegistration.repository.SeminarRepository;
 

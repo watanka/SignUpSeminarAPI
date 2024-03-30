@@ -1,4 +1,4 @@
-package com.SeminarRegistration.controller.response;
+package com.SeminarRegistration.controller.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

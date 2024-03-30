@@ -1,4 +1,4 @@
-package com.SeminarRegistration.dto;
+package com.SeminarRegistration.controller.dto;
 
 
 import lombok.Getter;

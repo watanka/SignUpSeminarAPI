@@ -1,9 +1,9 @@
 package com.SeminarRegistration.controller;
 
-import com.SeminarRegistration.controller.request.CheckRegistrationRequest;
-import com.SeminarRegistration.controller.request.RegisterRequest;
-import com.SeminarRegistration.controller.response.CheckRegistrationResponse;
-import com.SeminarRegistration.dto.SeminarDTO;
+import com.SeminarRegistration.controller.dto.request.CheckRegistrationRequest;
+import com.SeminarRegistration.controller.dto.request.RegisterRequest;
+import com.SeminarRegistration.controller.dto.response.CheckRegistrationResponse;
+import com.SeminarRegistration.controller.dto.SeminarDTO;
 import com.SeminarRegistration.service.RegistrationService;
 import com.SeminarRegistration.service.SeminarService;
 import org.springframework.beans.factory.annotation.Autowired;
